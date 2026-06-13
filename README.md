@@ -8,7 +8,7 @@ Virtual Herbal Garden is a web-based application that provides information about
 
 Many people are unaware of medicinal plants and their medicinal uses. Information about herbal plants is scattered across different sources, making it difficult for users to learn effectively. This project provides a single platform to explore and manage herbal plants virtually.
 
-## 🎯 Objectives
+##  Objectives
 
 - To develop a Virtual Herbal Garden application.
 - To provide information about medicinal plants and their uses.
@@ -16,7 +16,7 @@ Many people are unaware of medicinal plants and their medicinal uses. Informatio
 - To create an interactive and user-friendly platform.
 - To educate users about herbal medicine.
 
-## ✨ Features
+##  Features
 
 - User Registration and Login
 - Herbal Plant Information
@@ -24,7 +24,7 @@ Many people are unaware of medicinal plants and their medicinal uses. Informatio
 - Virtual Garden Management
 - User Profile Management
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - HTML
 - CSS
