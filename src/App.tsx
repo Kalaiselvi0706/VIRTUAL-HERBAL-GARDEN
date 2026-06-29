@@ -22,6 +22,8 @@ import { INITIAL_HERBS, INITIAL_LOGS } from './data';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import StatsDashboard from './components/StatsDashboard';
+import Login from "./components/Login";
+import Register from "./components/Register";
 import HerbCard from './components/HerbCard';
 import AddHerbModal from './components/AddHerbModal';
 import DetailHerbModal from './components/DetailHerbModal';
@@ -38,6 +40,8 @@ const QUOTES = [
 ];
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
   // Navigation & filtering state
   const [activeTab, setActiveTab] = useState<string>('garden'); // Garden is current active tab in mock
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -608,6 +612,20 @@ export default function App() {
       </div>
     );
   };
+ if (!isLoggedIn) {
+  if (showRegister) {
+    return <Register onBack={() => setShowRegister(false)} />;
+  }
+
+  return (
+    <Login
+      onLogin={() => setIsLoggedIn(true)}
+      onRegister={() => setShowRegister(true)}
+    />
+  );
+}
+
+
 
   return (
     <div className="min-h-screen text-[#1b1c16] pb-24 md:pb-0 md:pl-64">
@@ -630,12 +648,14 @@ export default function App() {
       }} />
 
       {/* Main Header bar */}
-      <Header
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        onAddClick={() => setIsAddOpen(true)}
-        activeTab={activeTab}
-      />
+     <Header
+  searchTerm={searchTerm}
+  setSearchTerm={setSearchTerm}
+  onAddClick={() => setIsAddOpen(true)}
+  activeTab={activeTab}
+  onLogout={() => setIsLoggedIn(false)}
+/>
+      
 
       {/* App Body container */}
       <main className="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">

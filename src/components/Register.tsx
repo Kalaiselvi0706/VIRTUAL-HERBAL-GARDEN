@@ -1,47 +1,46 @@
 import { useState } from "react";
 
-type LoginProps = {
-  onLogin: () => void;
-  onRegister: () => void;
+type RegisterProps = {
+  onBack: () => void;
 };
-export default function Login({ onLogin, onRegister }: LoginProps) {
+
+export default function Register({ onBack }: RegisterProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleRegister = (e: React.FormEvent) => {
   e.preventDefault();
 
-  // Default Admin Login
-  if (email === "admin@gmail.com" && password === "1234") {
-    alert("Admin Login Successful!");
-    onLogin();
-    return;
-  }
+  const user = {
+    name,
+    email,
+    password,
+  };
 
-  // Registered User Login
-  const savedUser = localStorage.getItem("vhgUser");
+  localStorage.setItem("vhgUser", JSON.stringify(user));
 
-  if (savedUser) {
-    const user = JSON.parse(savedUser);
+  alert("Registration Successful!");
 
-    if (email === user.email && password === user.password) {
-      alert("Login Successful!");
-      onLogin();
-      return;
-    }
-  }
-
-  alert("Invalid Email or Password");
+  onBack();
 };
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100">
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleRegister}
         className="bg-white p-8 rounded-xl shadow-lg w-96"
       >
         <h2 className="text-2xl font-bold text-center mb-6">
-          Virtual Herbal Garden
+          Register
         </h2>
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="w-full border p-2 mb-4 rounded"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <input
           type="email"
@@ -63,18 +62,16 @@ export default function Login({ onLogin, onRegister }: LoginProps) {
           type="submit"
           className="w-full bg-green-600 text-white p-2 rounded"
         >
-          Login
+          Register
         </button>
-        <p className="text-center mt-4">
-  Don't have an account?
-</p>
-<button
-  type="button"
-  onClick={onRegister}
-  className="w-full mt-2 bg-blue-600 text-white p-2 rounded"
->
-  Register
-</button>
+
+        <button
+          type="button"
+          onClick={onBack}
+          className="w-full mt-3 bg-gray-500 text-white p-2 rounded"
+        >
+          Back to Login
+        </button>
       </form>
     </div>
   );

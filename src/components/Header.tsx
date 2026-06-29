@@ -5,9 +5,16 @@ interface HeaderProps {
   setSearchTerm: (term: string) => void;
   onAddClick: () => void;
   activeTab: string;
+  onLogout: () => void;
 }
 
-export default function Header({ searchTerm, setSearchTerm, onAddClick, activeTab }: HeaderProps) {
+export default function Header({
+  searchTerm,
+  setSearchTerm,
+  onAddClick,
+  activeTab,
+  onLogout
+}: HeaderProps){
   const getSearchPlaceholder = () => {
     switch (activeTab) {
       case 'garden':
@@ -54,12 +61,19 @@ export default function Header({ searchTerm, setSearchTerm, onAddClick, activeTa
         {/* Global CTA "Add Herb" button */}
         <button
           onClick={onAddClick}
+          
           className="bg-[#215336] hover:bg-[#163623] active:scale-95 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-1.5 transition-all cursor-pointer shadow-sm hover:shadow"
           id="add-herb-btn"
         >
           <Plus className="w-4 h-4" />
           <span className="hidden sm:inline">Add Herb</span>
         </button>
+        <button
+  onClick={onLogout}
+  className="ml-3 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
+>
+  Logout
+</button>
       </div>
 
       {/* Mobile Search input - Hidden on desktop */}
