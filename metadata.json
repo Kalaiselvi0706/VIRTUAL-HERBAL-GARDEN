@@ -1,0 +1,6 @@
+{
+  "name": "HerbVault",
+  "description": "A minimal, botanical field book and garden tracker to curate, monitor, and catalog your herb collection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary-green: #215336;
+  --color-primary-hover: #163623;
+  --color-primary-container-green: #3a6b4c;
+  --color-on-primary-container-green: #b4e9c2;
+  --color-secondary-sage: #4b6546;
+  --color-secondary-container-sage: #cdebc4;
+  --color-on-secondary-container-sage: #516b4c;
+  --color-parchment: #fbfaf0;
+  --color-parchment-dim: #dbdad1;
+  --color-parchment-bright: #fbfaf0;
+  --color-surface-white: #ffffff;
+  --color-surface-low: #f5f4ea;
+  --color-surface-container: #f0eee4;
+  --color-surface-high: #eae8df;
+  --color-surface-highest: #e4e3d9;
+  --color-on-surface-dark: #1b1c16;
+  --color-on-surface-variant-dark: #414942;
+  --color-outline-sage: #717971;
+  --color-outline-variant-sage: #c0c9c0;
+  --color-botanical-error: #ba1a1a;
+  --color-botanical-error-container: #ffdad6;
+}
+
+body {
+  background-color: #fbfaf0;
+  color: #1b1c16;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar for botanical feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbfaf0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0c9c0;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a6b4c;
+}
